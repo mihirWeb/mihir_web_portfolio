@@ -1,38 +1,502 @@
-.App {
-  text-align: center;
+
+body{
+  background-color: #111111;
+  /* block-size: 100%; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Mukta:wght@200&display=swap');
+
+
+body, html, section{
+  /* height: 100%; */
+  margin: 0;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html{
+  scroll-snap-type: y mandatory;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.container{
+  visibility: hidden;
+  /* overflow: hidden; */
+  height: 100vh;
+  /* scroll-snap-type: mandatory; */
+}
+section{
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  /* scroll-behavior: smooth; */
+  /* scroll-snap-stop: always; */
+  height: 100vh;
+}
+
+@font-face {
+  font-family: TakenbyVulturesDemo;
+  src: url("fonts/TakenbyVulturesDemo.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Autone;
+  src: url(fonts/Autone.ttf) format("truetype");
+}
+
+@font-face{
+  font-family: DidonesqueRoman;
+  src: url(fonts/DidonesqueRoman.ttf) format("truetype");
+}
+
+
+
+/* ********************************     Home Section    ***************************** */
+
+.home{
+  height: 100vh;
+  padding: 0;
+  background-color: #111111;
+  background-size: cover;
+}
+
+
+
+
+/* *******************************       Navbar      ******************************* */
+
+
+.navbar{
+  padding-top: 25px;
+  z-index: 10;
+}
+
+/* .nav-ani-div{
+  position: fixed;
+} */
+
+.my-name{
+  font-family: TakenbyVulturesDemo, sans-serif;
+  margin-right: 50px;
+  font-size: 18px;
+  position: fixed;
+  right: 10px;
+}
+
+
+.navbar-list{
+  list-style-type: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-list div{
+  display: flex;
+  justify-content: space-evenly;
+  /* margin-left: 400px; */
+  padding-top: 15px;
+}
+
+
+.navbar-list a{
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-menu-items{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  overflow: hidden;
+  z-index: 5;
+  background-color: #321E1E;
+  opacity: 0.7;
+  top: 0;
+  display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-menu-items li{
+  color: white;
+  font-size: 3rem;
+  /* text-decoration: none; */
+  list-style: none;
+  margin-top: 30px;
+  text-align: center;
+  /* cursor: pointer; */
+  
+}
+.nav-menu-items li h1{
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 0;
+  opacity: 1;
+}
+
+.menu-list-item{
+  margin-top: 110px;
+  padding: 0 0;
+}
+
+
+
+
+/* HAMBURGER///// */
+
+.hamburger{
+  display: flex;
+  position: fixed;
+  width: 57px;
+  height: 25px;
+  margin-left: 50px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.hamburger-line{
+  height: 1px;
+  width: 15px;
+  position: absolute;
+  background-color: #414141;
+  transition: all 0.5s ease-in-out;
+  margin: 0;
+  left: 0;
+  background: linear-gradient(90deg, #fff, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-color: #414141;
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 500%;
   }
+}
+
+/* .hamburger:hover .hamburger-line {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hamburger:hover .hamburger-line::before {
+  transform: translateY(-10px);
+}
+
+.hamburger:hover .hamburger-line::after {
+  transform: translateY(10px);
+} */
+
+
+.hamburger-line::before{
+  content: "";
+  height: 1px;
+  width: 50px;
+  position: absolute;
+  background: white;
+  transform: translateY(-10px);
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(90deg, #fff, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-color: #414141;
+}
+
+.hamburger-line::after{
+  content: "";
+  height: 1px;
+  width: 50px;
+  position: absolute;
+  background: white;
+  transform: translateY(10px);
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(90deg, #fff, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-color: #414141;
+}
+
+.hamburger-click .hamburger-line{
+  background: transparent;
+}
+
+.hamburger-click .hamburger-line::before{
+  transform: rotate(-45deg);
+}
+
+.hamburger-click .hamburger-line::after{
+  transform: rotate(45deg);
+}
+
+
+
+
+/* ********************************************* Home Center text ********************************* */
+
+
+.home-heading-bg{
+  color: white;
+  text-align: center;
+  font-size: 335px;
+  margin-top: 120px;
+  margin-bottom: 0;
+  opacity: 0.2;
+}
+
+
+.home-heading p{
+  color: white;
+  position: absolute;
+  top: 65%;
+  left: 70%;
+  opacity: 0.7;
+  background: linear-gradient(90deg, #fff, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-color: #414141;
+}
+
+.home-heading p::before{
+  content: "";
+  height: 1px;
+  width: 285px;
+  background-color: white;
+  position: absolute;
+  top: 54%;
+  left: -257%;
+}
+
+.home-heading p::after{
+  content: "";
+  height: 1px;
+  width: 50px;
+  background-color: white;
+  position: absolute;
+  top: 54%;
+  right: -50%;
+}
+
+
+.scroll-text{
+  color: white;
+  text-align: center;
+  margin-top: 120px;
+  background: linear-gradient(90deg, #fff, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-color: #414141;
+  display: inline-block;
+  position: absolute;
+  left: 48.5%;
+}
+
+
+.scroll-line1{
+  position: absolute;
+  left: 49.5%;
+  bottom: 20px;
+  height: 40px;
+  width: 1px;
+  background-color: white;
+}
+
+.scroll-line1::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(10px);
+  background-color: white;
+  width: 1px;
+  height: 20px;
+}
+
+
+
+/* ******************************************************  About Me  ************************************************** */
+
+.about-me{
+  height: 100vh;
+
+}
+
+.about-me-bg{
+  color: white;
+  /* text-align: center; */
+  font-size: 15.625rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  opacity: 0.2;
+  position: absolute;
+}
+
+.about-me-div{
+  height: 550px;
+  width: 800px;
+  z-index: 4;
+  position: relative;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  display: flex;
+}
+
+.about-me-content{
+  background-color: black;
+  /* background: url(images/con_pic.jpg); */
+  animation-name: slideUp;
+  animation-duration: 1s;
+  /* animation-direction: alternate; */
+  position: relative;
+  /* bottom: 0; */
+  /* top: 0; */
+  height: 100%;
+  width: 100%;
+  /* opacity: 0.6; */
+}
+/* @keyframes slideUp {
+  from{
+    height: 0%;
+    
+  }
+  to{
+    height: 100%;
+    
+  }
+} */
+
+.about-me-content p{
+  /* color: lightgoldenrodyellow; */
+  color: gray;
+  /* font-family: TakenbyVulturesDemo; */
+
+  /* font-family: 'Cormorant Garamond', serif; */
+  font-family: 'Mukta', sans-serif;
+  /* font-size: 2rem; */
+  line-height: 1.3;
+  font-size: 19px;
+  padding: 50px 50px 50px 100px;
+  margin-top: 0;
+}
+
+.about-me-content h3{
+  font-family: Autone;
+  color: red;
+  opacity: 0.5;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.my-pic{
+  height: 70%;
+  width: 225px;
+  background-color: white;
+  /* background: url(images/my_pic1.jpg); */
+  background: url(images/my_pic2.jpg);
+  /* background: url(images/my_pic.jpg); */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  /* transform: translate(-75px, 440px); */
+  z-index: 7;
+  top: 50%;
+  transform: translate(-70%, -50%);
+}
+
+
+
+
+/* *****************************************************projects**************************************** */
+
+
+
+.project-div{
+  height: 500px;
+  width: 1000px;
+  top: 57%;
+  transform: translate(-45%, -50%);
+}
+
+
+.project-content{
+  /* background: url(images/Screenshot\ \(199\).png); */
+  /* background: url(images/8296001.jpg); */
+  /* background: url(images/wp11484830-web3-wallpapers.jpg); */
+  background: url(images/210891.jpg);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.7s;
+}
+
+
+.project-content:hover{
+  transform: scale(1.05);
+  /* filter: blur(2px); */
+
+}
+
+/* .project-div:hover .project-title h1{
+  color: wheat;
+} */
+
+
+.project-title{
+  height: 70%;
+  width: 225px;
+  color: white;
+  position: absolute;
+  z-index: 7;
+  top: 50%;
+  transform: translate(-70%, -50%);
+  text-align: center;
+}
+
+
+.project-title h1{
+  color: white;
+  position: absolute;
+  font-family: DidonesqueRoman;
+  font-weight: 100;
+  font-size: 90px;
+  margin-top: 0;
+} 
+
+.project-title p{
+  font-size: 20px;
+  font-family: 'Mukta', sans-serif;
+  margin-top: 0;
+
+}
+
+.project-title span{
+  font-size: 45px;
+  font-family: TakenbyVulturesDemo;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  color: grey;
 }
